@@ -3,9 +3,19 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "license": "ISC",
+  "homepage": "https://github.com/Wurielle/generate-exports#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Wurielle/generate-exports"
+  },
+  "bugs": {
+    "url": "https://github.com/Wurielle/generate-exports/issues"
+  },
   "scripts": {
     "build": "microbundle --target=node",
-    "dev": "microbundle --target=node watch"
+    "dev": "microbundle --target=node watch",
+    "publish-package": "npm publish"
   },
   "source": "src/main.ts",
   "main": "./dist/main.cjs",

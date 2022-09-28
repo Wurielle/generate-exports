@@ -81,7 +81,7 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish packages
-        run: lerna run build:publish
+        run: lerna run publish-packages
 
       - name: Rollback Release
         if: failure()
