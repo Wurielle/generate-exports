@@ -60,8 +60,8 @@ jobs:
         with:
           version: ${{ env.RELEASE_VERSION }}
           targets: |
-            ./generate-exports/package.json
-            ./vite-plugin-generate-exports/package.json
+            ./packages/generate-exports/package.json
+            ./packages/vite-plugin-generate-exports/package.json
       - name: Build
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
