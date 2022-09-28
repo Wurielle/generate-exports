@@ -51,10 +51,12 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
+
       - name: Set env variables
         shell: bash
         run: |
           echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+
       - name: Set package.json version
         uses: wurielle/package-version-action@v1
         with:
@@ -62,11 +64,26 @@ jobs:
           targets: |
             ./packages/generate-exports/package.json
             ./packages/vite-plugin-generate-exports/package.json
+
       - name: Build
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           npm run build
+
+      - name: Authenticate with Registry
+        run: |
+          npm logout
+          echo "@wurielle:registry=https://registry.npmjs.org/" > .npmrc
+          echo "registry=https://registry.npmjs.org/" >> .npmrc
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
+          npm whoami
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish packages
+        run: lerna run build:publish
+
       - name: Rollback Release
         if: failure()
         uses: author/action-rollback@stable
