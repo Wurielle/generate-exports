@@ -1,6 +1,6 @@
 {
   "name": "@wurielle/vite-plugin-generate-exports",
-  "private": true,
+  "private": false,
   "version": "0.0.0",
   "type": "module",
   "license": "ISC",
