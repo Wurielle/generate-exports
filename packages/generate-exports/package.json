@@ -12,6 +12,9 @@
   "bugs": {
     "url": "https://github.com/Wurielle/generate-exports/issues"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "microbundle --target=node",
     "dev": "microbundle --target=node watch",
