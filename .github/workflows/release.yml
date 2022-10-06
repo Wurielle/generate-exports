@@ -71,6 +71,7 @@ jobs:
           version: ${{ env.RELEASE_VERSION }}
           targets: |
             ./packages/generate-exports/package.json
+            ./packages/generate-exports-webpack-plugin/package.json
             ./packages/vite-plugin-generate-exports/package.json
 
       - name: Build

@@ -1,0 +1,39 @@
+{
+  "name": "@wurielle/generate-exports-webpack-plugin",
+  "private": false,
+  "version": "0.0.0",
+  "type": "module",
+  "license": "ISC",
+  "homepage": "https://github.com/Wurielle/generate-exports#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Wurielle/generate-exports"
+  },
+  "bugs": {
+    "url": "https://github.com/Wurielle/generate-exports/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "microbundle --target=node",
+    "dev": "microbundle --target=node watch",
+    "publish-package": "npm publish"
+  },
+  "source": "src/main.ts",
+  "main": "./dist/main.cjs",
+  "module": "./dist/main.es.js",
+  "unpkg": "./dist/main.umd.js",
+  "types": "./dist/main.d.ts",
+  "files": [
+    "./dist"
+  ],
+  "dependencies": {
+    "@wurielle/generate-exports": "*"
+  },
+  "devDependencies": {
+    "microbundle": "^0.15.1",
+    "typescript": "^4.6.4",
+    "vite": "^3.0.0"
+  }
+}
