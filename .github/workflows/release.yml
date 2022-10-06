@@ -103,7 +103,7 @@ jobs:
 
       - name: Publish packages
         run: npm run publish-packages
-
+        working-directory: ${{ github.workspace }}
       - name: Rollback Release
         if: failure()
         uses: author/action-rollback@stable
